@@ -1,11 +1,10 @@
 package com.abner.leetcode;
 
-
 /**
  * @author peiwenrui
  * @since 2018-11-28 21:46
  */
-class Solution {
+class MinSubArrayLen {
     ////    连续的的子数组
 //    连续且有序的子数组
 
