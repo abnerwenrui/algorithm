@@ -20,15 +20,10 @@ public class Intersect {
 
     public static int[] intersect(int[] nums1, int[] nums2) {
 
-        Map<Integer,Integer> map = new HashMap<Integer,Integer>();
+        Map<Integer,Integer> map = new HashMap<>();
         int start=0;
         for (Integer num : nums1) {
-            if (map.get(num)!=null) {
-                map.put(num, map.get(num) + 1);
-            }else {
-                map.put(num,1);
-            }
-
+            map.merge(num, 1, (a, b) -> a + b);
         }
         for (Integer num2 : nums2) {
             if (map.get(num2)!=null){
@@ -42,9 +37,7 @@ public class Intersect {
             }
         }
         int [] b = new int[start];
-        for (int i = 0; i < start; i++) {
-            b[i] = nums2[i];
-        }
+        System.arraycopy(nums2, 0, b, 0, start);
         return b;
     }
 }
